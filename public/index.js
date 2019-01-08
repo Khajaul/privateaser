@@ -174,9 +174,15 @@ for(i=0;i<events.length;i++){
 	}
 }
 
-//Step 3
+//Step 3 & 4
 for(i=0;i<events.length;i++){
 	events[i].commission.insurance = events[i].price * 0.15;
 	events[i].commission.treasury = events[i].persons;
-	events[i].commission.privateaser = events[i].price * 0.15- events[i].persons;
+	
+	if(events[i].options.deductibleReduction == true){
+		events[i].commission.privateaser = events[i].price * 0.15;
+		events[i].price += events[i].persons;
+	}else{
+		events[i].commission.privateaser = events[i].price * 0.15 - events[i].persons;
+	}
 }
