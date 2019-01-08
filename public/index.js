@@ -181,8 +181,8 @@ for(i=0;i<events.length;i++){
 	
 	if(events[i].options.deductibleReduction == true){
 		events[i].commission.privateaser = events[i].price * 0.15;
-		events[i].price += events[i].persons;
 	}else{
 		events[i].commission.privateaser = events[i].price * 0.15 - events[i].persons;
 	}
 }
+
