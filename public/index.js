@@ -173,3 +173,10 @@ for(i=0;i<events.length;i++){
 		events[i].price *= 0.8;
 	}
 }
+
+//Step 3
+for(i=0;i<events.length;i++){
+	events[i].commission.insurance = events[i].price * 0.15;
+	events[i].commission.treasury = events[i].persons;
+	events[i].commission.privateaser = events[i].price * 0.15- events[i].persons;
+}
