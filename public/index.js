@@ -150,6 +150,7 @@ console.log(bars);
 console.log(events);
 console.log(actors);
 
+//Step 1
 var i;
 var j;
 for(i=0;i<events.length;i++){
@@ -157,5 +158,18 @@ for(i=0;i<events.length;i++){
 		if(events[i].barId == bars[j].id){
 			events[i].price = events[i].time * bars[j].pricePerHour + events[i].persons * bars[j].pricePerPerson;
 		}
+	}
+}
+
+
+
+//Step 2
+for(i=0;i<events.length;i++){
+	if(events[i].persons >60){
+		events[i].price *= 0.5;
+	}else if(events[i].persons >20){
+		events[i].price *= 0.7;
+	}else if(events[i].persons >10){
+		events[i].price *= 0.8;
 	}
 }
