@@ -7,7 +7,7 @@ const bars = [{
   'id': 'f944a3ff-591b-4d5b-9b67-c7e08cba9791',
   'name': 'freemousse-bar',
   'pricePerHour': 50,
-  'pricePerPerson': 20
+  'pricePerPerson': 20,
 }, {
   'id': '165d65ec-5e3f-488e-b371-d56ee100aa58',
   'name': 'solera',
@@ -149,3 +149,13 @@ const actors = [{
 console.log(bars);
 console.log(events);
 console.log(actors);
+
+var i;
+var j;
+for(i=0;i<events.length;i++){
+	for(j=0;j<bars.length;j++){
+		if(events[i].barId == bars[j].id){
+			events[i].price = events[i].time * bars[j].pricePerHour + events[i].persons * bars[j].pricePerPerson;
+		}
+	}
+}
