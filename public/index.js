@@ -186,3 +186,30 @@ for(i=0;i<events.length;i++){
 	}
 }
 
+//Step 5
+for(i=0;i<actors.length;i++){
+	for(j=0;j<events.length;j++){
+		if(actors[i].eventId == events[i].id){
+			actors[i].payment.forEach(pay =>{
+				switch(pay.who){
+					case 'booker':
+						pay.amount = events[i].price;
+						if(events[i].options.deductibleReduction == true){pay.amount += events[i].persons}
+						break;
+					case 'bar':
+						pay.amount = events[i].price * 7/10;
+						break;
+					case 'insurance':
+						pay.amount = events[i].commission.insurance;
+						break;
+					case 'treasury':
+						pay.amount = events[i].commission.treasury;
+						break;
+					case 'privateaser':
+						pay.amount = events[i].commission.privateaser;
+						break;
+				}
+			});
+		}
+	}
+}
